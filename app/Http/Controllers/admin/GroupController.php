@@ -26,6 +26,15 @@ class GroupController extends Controller
 
     public function store(Request $request)
     {
+            $request->validate([
+                'title' => 'required|min:15',
+                'short_content' =>'required|min:20',
+                'age' => 'required|max:5',
+                'seat' => 'required|max:10',
+                'payment' => 'required|max:50',
+
+            ]);
+
         $requestData =$request->all();
 
         if($request->hasFile('img'))
@@ -56,9 +65,27 @@ class GroupController extends Controller
 
 
 
-    public function update(Request $request, Group $group)
+    public function update(Request $request,$id)
     {
-        $group->update($request->all());
+        $request->validate([
+            'title' => 'required|min:15',
+            'short_content' =>'required|min:20',
+            'age' => 'required|max:5',
+            'seat' => 'required|max:10',
+            'payment' => 'required|max: 50',
+
+        ]);
+
+    $requestData =$request->all();
+
+    if($request->hasFile('img'))
+    {
+        $file= request()->file('img');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('images/',$fileName);
+        $requestData['img'] = $fileName;
+    }
+        Group::find($id)->update($requestData);
 
         return redirect()->route('admin.groups.index');
     }

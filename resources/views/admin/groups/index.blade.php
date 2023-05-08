@@ -35,7 +35,7 @@
                                             <th>Age</th>
                                             <th>seat</th>
                                             <th>class_time</th>
-                                            <th>peyment</th>
+                                            <th>payment</th>
 
                                         </tr>
                                     </thead>

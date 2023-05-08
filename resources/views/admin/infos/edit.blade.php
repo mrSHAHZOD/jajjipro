@@ -26,7 +26,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                             <h4>Edit</h4>
                         </div>
                         <div class="card-body">
@@ -37,6 +46,7 @@
                                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                   <div class="col-sm-12 col-md-7">
                                       <input type="text" class="form-control" value="{{ $info->title }}" name="title">
+                                      @error('title') {{ $message  }}     @enderror
                                   </div>
                               </div>
                               <div class="form-group row mb-4">
@@ -44,6 +54,7 @@
                                       coment</label>
                                   <div class="col-sm-12 col-md-7">
                                       <input type="text" class="form-control" value="{{ $info->content }}" name="content">
+                                      @error('content') {{ $message  }}     @enderror
                                   </div>
                               </div>
                               <div class="form-group row mb-4">

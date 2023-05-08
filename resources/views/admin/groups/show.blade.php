@@ -46,8 +46,8 @@
                                             <td><b>{{ $group->class_time }}</b></td>
                                         </tr>
                                         <tr>
-                                            <td>Peyment: </td>
-                                            <td><b>{{ $group->peyment }}</b></td>
+                                            <td>payment: </td>
+                                            <td><b>{{ $group->payment }}</b></td>
                                         </tr>
                                 </table>
                             </div>

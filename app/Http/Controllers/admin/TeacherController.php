@@ -26,6 +26,14 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|min:5',
+            'content' => 'required|min:10',
+            'telegram' => 'required|min:10',
+            'fbook' => 'required|min:10',
+            'instagram' => 'required|min:10',
+        ]);
+
         $requestData= $request->all();
         if($request->hasFile('img'))
         {
@@ -50,17 +58,35 @@ class TeacherController extends Controller
 
     public function edit(Teacher $teacher)
     {
-        return view('admin.teacher.edit',compact('edit'));
+        return view('admin.teachers.edit',compact('teacher'));
     }
 
 
 
 
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request,$id)
     {
-        $teacher->update($request->all());
 
-        return redirect()->route('admin.Teachers.index');
+        $request->validate([
+            'name' => 'required|min:5',
+            'content' => 'required|min:10',
+            'telegram' => 'required|min:10',
+            'fbook' => 'required|min:10',
+            'instagram' => 'required|min:10',
+        ]);
+
+        $requestData= $request->all();
+        if($request->hasFile('img'))
+        {
+            $file = request()->file('img');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('images/', $fileName);
+            $requestData['img'] = $fileName;
+        }
+        Teacher::find($id)->update($requestData);
+
+
+      return redirect()->route('admin.teachers.index');
     }
 
 

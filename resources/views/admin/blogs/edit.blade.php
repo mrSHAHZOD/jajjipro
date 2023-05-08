@@ -35,12 +35,14 @@
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                   <div class="col-sm-12 col-md-7">
                     <input type="text" class="form-control" name="title" value="{{ $blog->title }}">
+                    @error('title') {{ $message }}  @enderror <br>
                   </div>
                 </div>
               <div class="form-group row mb-4">
                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
                 <div class="col-sm-12 col-md-7">
                   <input type="text" class="form-control" name="name" value="{{ $blog->name }}">
+                  @error('name') {{ $message }}  @enderror <br>
                 </div>
               </div>
               <div class="form-group row mb-4">
@@ -53,6 +55,7 @@
                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">short content</label>
                 <div class="col-sm-12 col-md-7">
                   <input type="text" class="form-control" name="short_content" value="{{ $blog->short_content }}">
+                  @error('shoprt_content') {{ $message }}  @enderror <br>
                 </div>
               </div>
 

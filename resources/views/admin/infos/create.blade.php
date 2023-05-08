@@ -34,6 +34,7 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="title">
+                                        @error('title') {{ $message }}  @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
@@ -41,6 +42,7 @@
                                         coment</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="content">
+                                        @error('content') {{ $message }}  @enderror<br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

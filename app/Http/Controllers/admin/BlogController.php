@@ -23,6 +23,11 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' =>'required|min:10',
+            'name' => 'required|min:4',
+            'short_content'=>'required|min:15',
+        ]);
         $requestData = $request->all();
 
         if($request->hasFile('img'))
@@ -50,9 +55,23 @@ class BlogController extends Controller
     }
 
 
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        $blog->update($request->all());
+        $request->validate([
+            'title' =>'required|min:10',
+            'name' => 'required|min:4',
+            'short_content'=>'required|min:15',
+        ]);
+        $requestData = $request->all();
+
+        if($request->hasFile('img'))
+        {
+            $file = request()->file('img');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('images/', $fileName);
+            $requestData['img'] = $fileName;
+        }
+        Blog::find($id)->update($requestData);
 
         return redirect()->route('admin.blogs.index');
     }
