@@ -62,6 +62,9 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">IMG</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="img">
+                                        @error('img')
+                                            {{ $message }}
+                                        @enderror <br>
                                     </div>
                                 </div>
 
@@ -69,6 +72,9 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="icon">
+                                        @error('icon')
+                                            {{ $message }}
+                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

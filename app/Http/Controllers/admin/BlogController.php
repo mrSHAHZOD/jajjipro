@@ -5,9 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\BlogStoreRequest;
 class BlogController extends Controller
-{public function index()
+
+{
+    public function index()
     {
 
        $blogs = Blog::orderBY('id','DESC')->paginate(3);
@@ -21,21 +23,14 @@ class BlogController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(BlogStoreRequest $request)
     {
-        $request->validate([
-            'title' =>'required|min:10',
-            'name' => 'required|min:4',
-            'short_content'=>'required|min:15',
-        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img'] = $this->upload_file();
         }
         Blog::create($requestData);
 
@@ -57,19 +52,12 @@ class BlogController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' =>'required|min:10',
-            'name' => 'required|min:4',
-            'short_content'=>'required|min:15',
-        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img'] = $this->upload_file();
         }
         Blog::find($id)->update($requestData);
 
@@ -83,5 +71,13 @@ class BlogController extends Controller
      $blog->delete();
 
      return redirect()->route('admin.blogs.index');
+    }
+
+
+    public function upload_file(){
+        $file = request()->file('img');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('images/', $fileName);
+        return $fileName;
     }
 }

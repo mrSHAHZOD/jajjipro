@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Info;
 use Illuminate\Http\Request;
+use App\Http\Requests\InfoStoreRequest;
 
 class InfoController extends Controller
 {
@@ -21,22 +22,14 @@ class InfoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(InfoStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:30',
-            'content' => 'required|min:10',
-        ]);
-
 
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icons/', $fileName);
-            $requestData['icon'] = $fileName;
+            $requestData['icon'] = $this->upload_file();
         }
 
         Info::create($requestData);
@@ -59,20 +52,14 @@ class InfoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:30',
-            'content' => 'required|min:10',
-        ]);
+
 
 
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icons/', $fileName);
-            $requestData['icon'] = $fileName;
+            $requestData['icon'] = $this->upload_file();
         }
 
             Info::find($id)->update($requestData);
@@ -87,5 +74,12 @@ class InfoController extends Controller
         $info->delete();
 
         return redirect()->route('admin.infos.index');
+    }
+
+    public function upload_file(){
+        $file = request()->file('icon');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('icons/', $fileName);
+        return $fileName;
     }
 }

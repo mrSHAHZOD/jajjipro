@@ -30,11 +30,9 @@ class ComentController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' =>'required|max:10',
-            'short_content' =>'required|max:25',
-            'work' =>'required|max:15',
-        ]);
+
+           $requestData['img']=$this->upload_file();
+
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
@@ -47,11 +45,9 @@ class ComentController extends Controller
 
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img']= $this->upload_file();
         }
+
         Coment::create($requestData);
 
         return redirect()->route('admin.coments.index');
@@ -73,11 +69,7 @@ class ComentController extends Controller
     public function update(Request $request, $id)
     {
 
-        $request->validate([
-            'name' =>'required|max:10',
-            'short_content' =>'required|max:25',
-            'work' =>'required|max:15',
-        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
@@ -90,10 +82,7 @@ class ComentController extends Controller
 
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img']= $this->upload_file();
         }
         Coment::find($id)->update($requestData);
 
@@ -105,5 +94,11 @@ class ComentController extends Controller
         $coment->delete();
 
         return redirect()->route('admin.coments.index');
+    }
+    public function upload_file(){
+        $file = request()->file('img');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('images/', $fileName);
+        return $fileName;
     }
 }
