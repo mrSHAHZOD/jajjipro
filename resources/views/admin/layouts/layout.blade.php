@@ -184,10 +184,10 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
-                                src="/admin/assets/img/user.png" class="user-img-radious-style"> <span
+                                src="/admin/assets/img/photo.jpg" class="user-img-radious-style"> <span
                                 class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello</div>
+                            <div class="dropdown-title">hello</div>
                             <a href="profile.html" class="dropdown-item has-icon"> <i
                                     class="far
                                           fa-user"></i> Profile
@@ -197,11 +197,11 @@
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <form action="#" method="POST">
+                            <form action="{{ route('logout') }}" class="logout" method="POST">
                                 @csrf
-                                <button class="dropdown-item has-icon text-danger"> <i
-                                        class="fas fa-sign-out-alt"></i> Chqiish</button>
-                            </form>
+                                <button class="dropdown-item has-icon text-danger">
+                                     <i class="fas fa-sign-out-alt"></i> Chqiish</button>
+                            </form >
                         </div>
                     </li>
                 </ul>

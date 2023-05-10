@@ -51,7 +51,7 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
 
 
 /* admin panel start*/
-     Route::prefix('admin/')->name('admin.')->group(function(){
+     Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 /*
@@ -112,3 +112,7 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
 
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

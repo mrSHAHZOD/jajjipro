@@ -24,7 +24,7 @@ class TeacherController extends Controller
 
 
 
-    public function store(TeacherStoreRequest $request)пш
+    public function store(TeacherStoreRequest $request)
     {
 
         $requestData= $request->all();

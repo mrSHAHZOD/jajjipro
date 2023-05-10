@@ -7,6 +7,7 @@ active
 
 @section('content')
 <section class="section">
+  <h1>Salom {{ Auth::user()->name }}</h1>
     <div class="row ">
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="card">
@@ -22,6 +23,7 @@ active
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
                   <div class="banner-img">
+                   {{--  <img src="/admin/assets/img/banner/photo.jp" alt=""> --}}
                     <img src="/admin/assets/img/banner/1.png" alt="">
                   </div>
                 </div>
@@ -83,7 +85,7 @@ active
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                   <div class="card-content">
                     <h5 class="font-15">Revenue</h5>
-                    <h2 class="mb-3 font-18">$48,697</h2>
+                    <h2 class="mb-3 font-18">$4,888,697</h2>
                     <p class="mb-0"><span class="col-green">42%</span> Increase</p>
                   </div>
                 </div>
@@ -98,7 +100,7 @@ active
         </div>
       </div>
     </div>
-    
+
   </section>
 
 @endsection

@@ -32,6 +32,7 @@
                                             <th>Title</th>
                                             <th>Content</th>
                                             <th>Icon</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
