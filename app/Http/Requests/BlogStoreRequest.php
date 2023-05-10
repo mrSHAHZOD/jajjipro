@@ -36,7 +36,7 @@ class BlogStoreRequest extends FormRequest
             'title.required' => 'sarlavha bolishi shart !',
             'title.min ' => 'Eng kamida 5 ta belgi bplishi kerak !',
             'name.min' => 'eng kamida 4 ta harf bolishi kerak ',
-            'icon.mimes' => 'Rasm png yoki jpg formatda kiritilsin'
+            'img.mimes' => 'Rasm png yoki jpg formatda kiritilsin'
         ];
     }
 }

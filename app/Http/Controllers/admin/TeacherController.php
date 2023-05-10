@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\TeacherStoreRequest;
 class TeacherController extends Controller
 {
     public function index()
@@ -24,23 +24,13 @@ class TeacherController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(TeacherStoreRequest $request)пш
     {
-        $request->validate([
-            'name' => 'required|min:5',
-            'content' => 'required|min:10',
-            'telegram' => 'required|min:10',
-            'fbook' => 'required|min:10',
-            'instagram' => 'required|min:10',
-        ]);
 
         $requestData= $request->all();
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img']=$this->upload_file();
         }
         Teacher::create($requestData);
 
@@ -67,21 +57,10 @@ class TeacherController extends Controller
     public function update(Request $request,$id)
     {
 
-        $request->validate([
-            'name' => 'required|min:5',
-            'content' => 'required|min:10',
-            'telegram' => 'required|min:10',
-            'fbook' => 'required|min:10',
-            'instagram' => 'required|min:10',
-        ]);
-
         $requestData= $request->all();
         if($request->hasFile('img'))
         {
-            $file = request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img']= $this->upload_file();
         }
         Teacher::find($id)->update($requestData);
 
@@ -95,5 +74,14 @@ class TeacherController extends Controller
         $teacher->delete();
 
         return redirect()->route('admin.Teachers.index');
+    }
+
+
+    public function upload_file()
+    {
+        $file = request()->file('img');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('images/', $fileName);
+            return $fileName;
     }
 }

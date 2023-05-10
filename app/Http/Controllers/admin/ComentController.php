@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Coment;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ComentStoreRequest;
 class ComentController extends Controller
 {
     /**
@@ -27,10 +27,8 @@ class ComentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ComentStoreRequest $request)
     {
-
-
            $requestData['img']=$this->upload_file();
 
         $requestData = $request->all();
@@ -45,7 +43,7 @@ class ComentController extends Controller
 
         if($request->hasFile('img'))
         {
-            $requestData['img']= $this->upload_file();
+            $requestData['img'] = $this->upload_file();
         }
 
         Coment::create($requestData);
@@ -82,12 +80,14 @@ class ComentController extends Controller
 
         if($request->hasFile('img'))
         {
-            $requestData['img']= $this->upload_file();
+            $requestData['img'] = $this->upload_file();
         }
         Coment::find($id)->update($requestData);
 
         return redirect()->route('admin.coments.index');
     }
+
+
 
     public function destroy(Coment $coment)
     {
@@ -95,6 +95,9 @@ class ComentController extends Controller
 
         return redirect()->route('admin.coments.index');
     }
+
+    
+
     public function upload_file(){
         $file = request()->file('img');
         $fileName = time().'-'.$file->getClientOriginalName();

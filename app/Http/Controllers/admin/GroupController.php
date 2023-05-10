@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\GroupStoreRequest;
 class GroupController extends Controller
 {
     public function index()
@@ -24,25 +24,15 @@ class GroupController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(GroupStoreRequest $request)
     {
-            $request->validate([
-                'title' => 'required|min:15',
-                'short_content' =>'required|min:20',
-                'age' => 'required|max:5',
-                'seat' => 'required|max:10',
-                'payment' => 'required|max:50',
-
-            ]);
-
         $requestData =$request->all();
+
 
         if($request->hasFile('img'))
         {
-            $file= request()->file('img');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/',$fileName);
-            $requestData['img'] = $fileName;
+            $requestData['img']= $this->upload_file();
+
         }
         Group::create($requestData);
 
@@ -67,24 +57,13 @@ class GroupController extends Controller
 
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'title' => 'required|min:15',
-            'short_content' =>'required|min:20',
-            'age' => 'required|max:5',
-            'seat' => 'required|max:10',
-            'payment' => 'required|max: 50',
 
-        ]);
+        $requestData = $request->all();
 
-    $requestData =$request->all();
-
-    if($request->hasFile('img'))
-    {
-        $file= request()->file('img');
-        $fileName = time().'-'.$file->getClientOriginalName();
-        $file->move('images/',$fileName);
-        $requestData['img'] = $fileName;
-    }
+        if($request->hasFile('img'))
+        {
+            $requestData['img'] = $this->upload_file();
+        }
         Group::find($id)->update($requestData);
 
         return redirect()->route('admin.groups.index');
@@ -97,4 +76,12 @@ class GroupController extends Controller
 
         return redirect()->route('admin.groups.index');
     }
+
+    public function upload_file(){
+        $file= request()->file('img');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('images/',$fileName);
+        return $fileName;
+    }
+
 }
