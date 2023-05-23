@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('humans')
     active
 @endsection
 
@@ -25,32 +25,39 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Yangi o'qituvchi qo'shish</h4>
+                            <h4>Mijoz qo'shish</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.humans.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"> Ismi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                                        @error('title') {{ $message }}  @enderror <br>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ old('name') }}">
+                                        @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
+
+
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Short
-                                        coment</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="content" value="{{ old('content') }}">
-                                        @error('content') {{ $message }}  @enderror<br>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="file" class="form-control" name="icon" value="{{ old('icon') }}">
-                                    </div>
-                                </div>
+                                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"> Numbers</label>
+                                  <div class="col-sm-12 col-md-7">
+                                      <select name="number_id" class="form-control">
+
+                                          @foreach ($numbers as $item)
+                                              <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                          @endforeach
+
+                                      </select>
+                                  </div>
+                              </div>
+
+
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7">

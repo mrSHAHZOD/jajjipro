@@ -28,27 +28,13 @@
                             <h4>Yangi o'qituvchi qo'shish</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                                        @error('title') {{ $message }}  @enderror <br>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Short
-                                        coment</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="content" value="{{ old('content') }}">
-                                        @error('content') {{ $message }}  @enderror<br>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="file" class="form-control" name="icon" value="{{ old('icon') }}">
+                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                        @error('name') {{ $message }}  @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

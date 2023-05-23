@@ -10,22 +10,29 @@
             <li class="dropdown @yield('dashboard')">
                 <a href="/a-panel" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
+
             <li class="dropdown @yield('infos')">
                 <a href="{{ route('admin.infos.index') }}"><i data-feather="briefcase"></i><span>infos</span></a>
             </li>
 
-            <li class="dropdown @yield('groups')">
-                <a href="{{ route('admin.groups.index') }}"><i data-feather="briefcase"></i><span>Groups</span></a>
+
+            <li class="dropdown @yield('infos')">
+                <a href="{{ route('admin.categories.index') }}"><i data-feather="briefcase"></i><span>Categora</span></a>
             </li>
-            <li class="dropdown @yield('regions')">
-                <a href="{{ route('admin.teachers.index') }}"><i data-feather="briefcase"></i><span>Teachers</span></a>
+
+
+            <li class="dropdown @yield('infos')">
+                <a href="{{ route('admin.posts.index') }}"><i data-feather="briefcase"></i><span>Postlar</span></a>
             </li>
-            <li class="dropdown @yield('regions')">
-                <a href="{{ route('admin.coments.index') }}"><i data-feather="briefcase"></i><span>Coments</span></a>
+
+            <li class="dropdown @yield('infos')">
+                <a href="{{ route('admin.numbers.index') }}"><i data-feather="briefcase"></i><span>Raqamlar</span></a>
             </li>
-            <li class="dropdown @yield('regions')">
-                <a href="{{ route('admin.blogs.index') }}"><i data-feather="briefcase"></i><span>BLOGS</span></a>
+
+            <li class="dropdown @yield('infos')">
+                <a href="{{ route('admin.humans.index') }}"><i data-feather="briefcase"></i><span>Odamlar</span></a>
             </li>
+
         </ul>
     </aside>
 </div>

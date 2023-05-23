@@ -50,7 +50,7 @@ class InfoController extends Controller
         return view('admin.infos.edit', compact('info'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,Info $info)
     {
 
 
@@ -59,23 +59,37 @@ class InfoController extends Controller
 
         if($request->hasFile('icon'))
         {
+            $this->unlink_file($info);
+
             $requestData['icon'] = $this->upload_file();
         }
 
-            Info::find($id)->update($requestData);
-
-        /* $info->update($request->all()); */
+            $info->update($requestData);
 
         return redirect()->route('admin.infos.index');
     }
 
     public function destroy(Info $info)
     {
+
+        $this->unlink_file($info);
+
         $info->delete();
 
         return redirect()->route('admin.infos.index');
     }
 
+
+    public function unlink_file(Info $info)
+    {
+        if(isset($info->icon) && file_exists(public_path('/icon/'.$info->icon)))
+        {
+            unlink(public_path('/icon/'.$info->icon));
+        }
+    }
+
+
+    
     public function upload_file(){
         $file = request()->file('icon');
         $fileName = time().'-'.$file->getClientOriginalName();

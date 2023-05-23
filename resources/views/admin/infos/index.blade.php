@@ -50,7 +50,7 @@
                                                 </td>
                                                 <td>{{ $info->title }}</td>
                                                 <td>{{ $info->content }}</td>
-                                                <td><img src="/icons/{{ $info->icon }}" alt="" width="70px"> </td>
+                                                <td><img src="/icons/{{ $info->icon }}" alt="" width="50px"> </td>
 
                                                 <td>
                                                     <form action="{{ route('admin.infos.destroy', $info->id) }}"

@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ComplaintsController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InfoController;
-use App\Http\Controllers\admin\GroupController;
-use App\Http\Controllers\admin\TeacherController;
-use App\Http\Controllers\admin\ComentController;
-use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\PostController;
+use App\Http\Controllers\admin\HumanController;
+use App\Http\Controllers\admin\NumberController;
 
 
 
@@ -105,10 +105,17 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
 
 
     Route::resource('/infos', InfoController::class);
+
+
+
+
+
+
     Route::resource('/groups', GroupController::class);
-    Route::resource('/teachers', TeacherController::class);
-    Route::resource('/coments', ComentController::class);
-    Route::resource('/blogs', BlogController::class);
+    Route::resource('/posts', PostController::class);
+    Route::resource('/categories', CategoryController::class);
+    Route::resource('/humans', HumanController::class);
+    Route::resource('/numbers', NumberController::class);
 
 });
 

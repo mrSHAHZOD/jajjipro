@@ -30,7 +30,7 @@ active
                   </tr>
                   <tr>
                     <td>Icon : </td>
-                    <td><b><img src="/icons/{{ $info->icon }}" alt=""width="70px"></b></td>
+                    <td><b><img src="/icons/{{ $info->icon }}" alt="" width="50px"></b></td>
                 </tr>
                 </table>
               </div>

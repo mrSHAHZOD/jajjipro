@@ -26,7 +26,7 @@ class InfoStoreRequest extends FormRequest
         return [
             'title' => 'required|min:5|max:30',
             'content' => 'required',
-            'icon' => 'required|mimes:png,jpg|max:2048'
+            'icon' => 'required|mimes:png,jpg'
         ];
     }
 
