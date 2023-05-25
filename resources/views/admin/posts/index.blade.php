@@ -46,8 +46,8 @@ active
                         <td>
                           {{ ++$loop->index }}
                         </td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->category->name ?? 'Boglanmagan' }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->name  }}</td>
                         <td>
                           <img alt="image" src="/images/{{ $item->img }}" width="59">
                         </td>
@@ -64,7 +64,7 @@ active
 
                       </tr>
                     @endforeach
-
+g
                   </tbody>
                 </table>
                 {{ $posts->links() }}

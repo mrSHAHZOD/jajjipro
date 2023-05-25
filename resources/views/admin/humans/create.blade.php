@@ -42,6 +42,14 @@
                                     </div>
                                 </div>
 
+                           {{--      <div class="form-group">
+                                    <label>Select</label>
+                                    <select class="form-control">
+                                      <option>Option 1</option>
+                                      <option>Option 2</option>
+                                      <option>Option 3</option>
+                                    </select>
+                                  </div> --}}
 
                                 <div class="form-group row mb-4">
                                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"> Numbers</label>

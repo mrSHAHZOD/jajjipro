@@ -10,6 +10,9 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\admin\HumanController;
 use App\Http\Controllers\admin\NumberController;
+use App\Http\Controllers\admin\RegionController;
+use App\Http\Controllers\admin\DistrictController;
+use App\Http\Controllers\admin\StreetController;
 
 
 
@@ -116,6 +119,9 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
     Route::resource('/categories', CategoryController::class);
     Route::resource('/humans', HumanController::class);
     Route::resource('/numbers', NumberController::class);
+    Route::resource('/regions', RegionController::class);
+    Route::resource('/districts', DistrictController::class);
+    Route::resource('/streets', StreetController::class);
 
 });
 
