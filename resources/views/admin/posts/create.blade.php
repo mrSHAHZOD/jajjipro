@@ -44,34 +44,13 @@
                 <div class="col-sm-12 col-md-7">
                     <select name="category_id" class="form-control">
 
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
 
                     </select>
                 </div>
             </div>
-
-
-
-              <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Muallif Uz</label>
-                <div class="col-sm-12 col-md-7">
-                  <input type="text" class="form-control" name="owner" value="{{ old('owner') }}">
-                   @error('owner') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                </div>
-              </div>
-
-              <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Rasm</label>
-                <div class="col-sm-12 col-md-7">
-                  <div id="image-preview" class="image-preview">
-                    <label for="image-upload" id="image-label">Rasmni tanlang</label>
-                    <input type="file" name="img" id="image-upload" />
-                  </div>
-                  @error('img') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                </div>
-              </div>
 
               <div class="form-group row mb-4">
                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

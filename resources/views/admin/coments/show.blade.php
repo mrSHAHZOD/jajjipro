@@ -23,8 +23,7 @@
                                     <thead>
                                         <tr>
                                             <td>ICON : </td>
-                                            <td><b><img src="/icons/{{ $coment->icon }}" alt=""width="60px"></b>
-                                            </td>
+                                            <td><b><img src="/icons/{{ $coment->icon }}" alt=""width="60px"></b></td>
                                         </tr>
                                         <tr>
                                             <td>short content : </td>
@@ -32,8 +31,7 @@
                                         </tr>
                                         <tr>
                                             <td>Img : </td>
-                                            <td><b><img src="/images/{{ $coment->img }}" alt=""width="60px"></b>
-                                            </td>
+                                            <td><b><img src="/images/{{ $coment->img }}" alt=""width="60px"></b></td>
                                         </tr>
 
                                         <tr>

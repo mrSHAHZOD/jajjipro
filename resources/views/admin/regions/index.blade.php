@@ -30,8 +30,7 @@
                                                 #
                                             </th>
                                             <th>vloyat</th>
-                                            <th>tuman</th>
-                                            <th>mahalla</th>
+                                           
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -49,13 +48,13 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $region->name  }}</td>
-                                                <td>
-                                                    {{ $region->noun  ?? 'boglanmagan'}}
-                                                   {{--  @foreach ($region->districts as $region)
+                                        {{--         <td>
+                                                    {{ $region->noun  ?? 'boglanmagan ' }}
+                                                  @foreach ($region->districts as $region)
                                                         {{ $region->noun }}
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </td>
-                                                <td>{{ $region->title  ?? 'boglanmagan'}}</td>
+                                                <td>{{ $region->title  ?? 'boglanmagan'}}</td> --}}
                                                 <td>
                                                     <form action="{{ route('admin.regions.destroy', $region->id) }}"
                                                         method="POST">

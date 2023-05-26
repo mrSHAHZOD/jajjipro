@@ -15,10 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->text('info')->nullable();
-            $table->string('owner')->nullable();
-            $table->string('img')->nullable();
+            $table->string('title')->nullable();
             $table->integer('category_id')->nullable();
             $table->timestamps();
         });

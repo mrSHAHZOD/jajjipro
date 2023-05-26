@@ -21,32 +21,13 @@ active
                 <table class="table table-striped" id="table-1">
                   <thead>
                     <tr>
-                        <td>Nomi UZ: </td>
-                        <td><b>{{ $post->name }}</b></td>
+                        <td>post: </td>
+                        <td><b>{{ $post->title }}</b></td>
                     </tr>
-
-
-
-
-                    <tr>
-                        <td>Ma'lumotlar : </td>
-                        <td><b>{!! $post->info !!}</b></td>
-                    </tr>
-
                     <tr>
                         <td>Muallif: </td>
-                        <td><b>{{ $post->owner }}</b></td>
+                        <td><b>{{ $post->category->name }}</b></td>
                     </tr>
-
-
-
-                    <tr>
-                        <td>Rasmi : </td>
-                        <td>
-                          <img alt="image" src="/images/{{ $post->img }}" width="59">
-                        </td>
-                    </tr>
-
                 </table>
               </div>
             </div>

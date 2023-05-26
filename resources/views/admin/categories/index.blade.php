@@ -29,8 +29,7 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Nomi</th>
-                                            <th>Maqola nomi</th>
+                                            <th>Category</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -42,27 +41,23 @@
                                             </tr>
                                         @endif
 
-                                        @foreach ($categories as $item)
+                                        @foreach ($categories as $category)
                                             <tr>
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $category->name }}</td>
+
                                                 <td>
-                                                    @foreach ($item->posts as $item)
-                                                        {{ $item->title }}
-                                                    @endforeach
-                                                </td>
-                                                <td>
-                                                    <form action="{{ route('admin.categories.destroy', $item->id) }}"
+                                                    <form action="{{ route('admin.categories.destroy', $category->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.categories.show', $item->id) }}"
+                                                        <a href="{{ route('admin.categories.show', $category->id) }}"
                                                             class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.categories.edit', $item->id) }}"
+                                                        <a href="{{ route('admin.categories.edit', $category->id) }}"
                                                             class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
@@ -78,7 +73,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $categories->links() }}
+                             {{--    {{ $categories->links() }} --}}
                             </div>
                         </div>
                     </div>

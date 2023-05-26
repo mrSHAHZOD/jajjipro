@@ -34,9 +34,6 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="name">
-                                        @error('name')
-                                            {{ $message }}
-                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
@@ -44,27 +41,18 @@
                                         content</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="short_content">
-                                        @error('short_content')
-                                            {{ $message }}
-                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Work</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="work">
-                                        @error('work')
-                                            {{ $message }}
-                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">IMG</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="img">
-                                        @error('img')
-                                            {{ $message }}
-                                        @enderror <br>
                                     </div>
                                 </div>
 
@@ -72,9 +60,6 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="icon">
-                                        @error('icon')
-                                            {{ $message }}
-                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

@@ -33,8 +33,11 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-                                        @error('name') {{ $message }}  @enderror <br>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ old('name') }}">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

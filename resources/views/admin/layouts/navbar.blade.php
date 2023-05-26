@@ -1,56 +1,91 @@
-<div class="main-sidebar sidebar-style-2">
-    <aside id="sidebar-wrapper">
-        <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="/admin/assets/img/logo.png" class="header-logo" /> <span
-                    class="logo-name">Otika</span>
-            </a>
-        </div>
-        <ul class="sidebar-menu">
-
-            <li class="dropdown @yield('dashboard')">
-                <a href="/a-panel" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
-            </li>
-
-            <li class="dropdown @yield('infos')">
-                <a href="{{ route('admin.infos.index') }}"><i data-feather="briefcase"></i><span>infos</span></a>
-            </li>
 
 
-            <li class="dropdown @yield('infos')">
-                <a href="{{ route('admin.categories.index') }}"><i
-                        data-feather="briefcase"></i><span>Categora</span></a>
-            </li>
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">
+        <svg class="nav-icon">
+            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+        </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
+</li>
+<li class="nav-title">malumotlar</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.categories.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg> Categories</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.posts.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>postlar</a>
+</li>
+
+<li class="nav-title">birlashma</li>
 
 
-            <li class="dropdown @yield('infos')">
-                <a href="{{ route('admin.posts.index') }}"><i data-feather="briefcase"></i><span>Postlar</span></a>
-            </li>
-
-            <li class="dropdown @yield('infos')">
-                <a href="{{ route('admin.numbers.index') }}"><i data-feather="briefcase"></i><span>Raqamlar</span></a>
-            </li>
-
-            <li class="dropdown @yield('infos')">
-                <a href="{{ route('admin.humans.index') }}"><i data-feather="briefcase"></i><span>Odamlar</span></a>
-            </li>
-
-            <br>
-            <br>
-
-            <li class="dropdown @yield('regions')">
-                <a href="{{ route('admin.regions.index') }}"><i data-feather="briefcase"></i><span>Vloyat</span></a>
-            </li>
-
-            <li class="dropdown @yield('district')">
-                <a href="{{ route('admin.districts.index') }}"><i data-feather="briefcase"></i><span>Tuman</span></a>
-            </li>
-
-            <li class="dropdown @yield('street')">
-                <a href="{{ route('admin.streets.index') }}"><i data-feather="briefcase"></i><span>Mahalla</span></a>
-            </li>
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.humans.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>Odamlar</a>
+</li>
 
 
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.numbers.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>Raqamlar</a>
+</li>
 
-        </ul>
-    </aside>
-</div>
+<li class="nav-title">vloyat.tuman</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.regions.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>Viloyat</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.districts.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>Tuman</a>
+</li>
+
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.streets.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+    </svg>mahalla</a>
+</li>
+
+<li class="nav-title">Theme</li>
+
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.infos.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Infos</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.blogs.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> Blogs</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.coments.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> Coments</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.groups.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> groups</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.teachers.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg>Teacher</a>
+</li>
+

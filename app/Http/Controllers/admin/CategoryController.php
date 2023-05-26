@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,11 +18,8 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $categories = DB::table('categories')
-        ->join('posts','categories.id','=','posts.category_id')
-        ->select('categories.*','posts.*')->paginate(10);
+        $categories = Category::orderBy('id', 'DESC')->paginate(3);
 
-       /*  return $categories; */
         return view('admin.categories.index', compact('categories'));
 
     }
@@ -45,6 +43,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
+
         return redirect()->route('admin.categories.index')->with('success', 'Success done');
     }
 
@@ -57,6 +56,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
+        
         return view('admin.categories.show', compact('category'));
     }
 

@@ -13,6 +13,10 @@ use App\Http\Controllers\admin\NumberController;
 use App\Http\Controllers\admin\RegionController;
 use App\Http\Controllers\admin\DistrictController;
 use App\Http\Controllers\admin\StreetController;
+use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\ComentController;
+use App\Http\Controllers\admin\GroupController;
+use App\Http\Controllers\admin\TeacherController;
 
 
 
@@ -122,6 +126,11 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
     Route::resource('/regions', RegionController::class);
     Route::resource('/districts', DistrictController::class);
     Route::resource('/streets', StreetController::class);
+    Route::resource('/blogs', BlogController::class);
+    Route::resource('/coments', ComentController::class);
+    Route::resource('/groups', GroupController::class);
+    Route::resource('/teachers', TeacherController::class);
+
 
 });
 

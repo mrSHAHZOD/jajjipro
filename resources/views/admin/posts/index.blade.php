@@ -28,10 +28,9 @@ active
                       <th class="text-center">
                         #
                       </th>
-                      <th>Maqola nomi </th>
+                      <th>Post </th>
                       <th>kategoriyasi</th>
-                      <th>Rasm</th>
-                      <th>Action</th>
+                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -41,23 +40,20 @@ active
 					    </tr>
 					@endif
 
-                    @foreach($posts as $item)
+                    @foreach($posts as $post)
                       <tr>
                         <td>
                           {{ ++$loop->index }}
                         </td>
-                        <td>{{ $item->title }}</td>
-                        <td>{{ $item->name  }}</td>
-                        <td>
-                          <img alt="image" src="/images/{{ $item->img }}" width="59">
-                        </td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->name ?? 'boglanmagan' }}</td>
 
                         <td>
-                            <form action="{{ route('admin.posts.destroy', $item->id) }}" method="POST">
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                            <a href="{{ route('admin.posts.show', $item->id) }}" class="btn btn-info"><ion-icon class="fas fa-info-circle"></ion-icon></a>
-                            <a href="{{ route('admin.posts.edit', $item->id) }}" class="btn btn-primary"><ion-icon class="far fa-edit"></ion-icon></a>
+                            <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-info"><ion-icon class="fas fa-info-circle"></ion-icon></a>
+                            <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary"><ion-icon class="far fa-edit"></ion-icon></a>
                             <button class="btn btn-danger" onclick="return confirm('Rostdan o`chirmoqchimisiz ?')"><ion-icon class="fas fa-times"></ion-icon></button>
                             </form>
                         </td>

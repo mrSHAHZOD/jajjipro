@@ -51,8 +51,7 @@
                                                 </td>
                                                 <td><img src="/icons/{{ $coment->icon }}" alt=""width="60px"></td>
                                                 <td>{{ $coment->short_content }}</td>
-                                                <td><img src="/images/{{ $coment->img }}" alt=""width="60px">
-                                                </td>
+                                                <td><img src="/images/{{ $coment->img }}" alt=""width="60px"></td>
                                                 <td>{{ $coment->name }}</td>
                                                 <td>{{ $coment->work }}</td>
 
