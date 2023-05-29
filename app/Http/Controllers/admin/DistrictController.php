@@ -11,10 +11,7 @@ class DistrictController extends Controller
 {
     public function index()
     {
-        $districts  = DB::table('districts')
-        ->join('streets','districts.id','=','streets.district_id')
-        ->select('districts.*','streets.*')->get();
-        /* return $regions; */
+        $districts  = District::orderBy('id','DESC')->paginate(3);
         return view('admin.districts.index', compact('districts',));
     }
 
@@ -34,9 +31,12 @@ class DistrictController extends Controller
 
     public function show($id)
     {
-        $district = District::find($id);
+        $districts  = DB::table('districts')
+        ->join('streets','districts.id','=','streets.district_id')
+        ->select('districts.*','streets.*')->get();
+        /* return $regions; */
 
-        return view('admin.districts.show', compact('district'));
+        return view('admin.districts.show', compact('districts'));
     }
 
     public function edit($id)

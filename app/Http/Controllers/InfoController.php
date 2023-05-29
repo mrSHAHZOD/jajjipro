@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Info;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\InfoStoreRequest;
 
@@ -40,13 +41,14 @@ class InfoController extends Controller
 
     public function show(Info $info)
     {
+        $info = Inofo::find($id);
         return view('admin.infos.show', compact('info'));
     }
 
 
     public function edit(Info $info)
     {
-
+        $info = Inofo::find($id);
         return view('admin.infos.edit', compact('info'));
     }
 
@@ -89,7 +91,7 @@ class InfoController extends Controller
     }
 
 
-    
+
     public function upload_file(){
         $file = request()->file('icon');
         $fileName = time().'-'.$file->getClientOriginalName();

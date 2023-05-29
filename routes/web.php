@@ -112,12 +112,6 @@ Route::post('/complaints',[ComplaintsController::class, 'complaints'])->name('co
 
 
     Route::resource('/infos', InfoController::class);
-
-
-
-
-
-
     Route::resource('/groups', GroupController::class);
     Route::resource('/posts', PostController::class);
     Route::resource('/categories', CategoryController::class);

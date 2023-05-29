@@ -30,7 +30,7 @@
                                                 #
                                             </th>
                                             <th>Tuman</th>
-                                            <th>mahalla</th>
+                                         
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -48,7 +48,6 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $district->noun  }}</td>
-                                                <td>{{$district->title ?? 'boglanmagan'}}</td>
                                                 <td>
                                                     <form action="{{ route('admin.districts.destroy', $district->id) }}"
                                                         method="POST">

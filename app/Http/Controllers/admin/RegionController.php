@@ -12,10 +12,7 @@ class RegionController extends Controller
     public function index()
     {
 
-        $regions = DB::table('regions')
-        ->join('districts','regions.id','=','districts.region_id')
-        ->join('streets','regions.id','=','streets.region_id')
-        ->select('regions.*','districts.*','streets.*')->get();
+        $regions =Region::orderBy('id','DESC')->get();
         /* return $regions; */
         return view('admin.regions.index', compact('regions'));
     }
@@ -34,9 +31,12 @@ class RegionController extends Controller
 
     public function show($id)
     {
-        $region = Region::find($id);
-
-        return view('admin.regions.show', compact('region'));
+        $regions =DB::table('regions')
+        ->join('districts','regions.id','=','districts.region_id')
+        ->join('streets','regions.id','=','streets.region_id')
+        ->select('regions.*','districts.*','streets.*')->get();
+       /*  return $regions; */
+        return view('admin.regions.show', compact('regions'));
     }
 
     public function edit($id)
