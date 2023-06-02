@@ -18,6 +18,10 @@ class BlogController extends Controller
 
     public function create()
     {
+        if (Blog::count() >3)
+
+        return redirect()->route('admin.blogs.index')->with('danger','Malumot  qoshilmadi');
+
         return view('admin.blogs.create');
     }
 
@@ -35,7 +39,7 @@ class BlogController extends Controller
         }
         Blog::create($requestData);
 
-        return redirect()->route('admin.blogs.index');
+        return redirect()->route('admin.blogs.index')->with('success','malumot muvofaqiyatli qoshildi');
     }
 
 

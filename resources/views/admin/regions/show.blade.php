@@ -21,8 +21,6 @@
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
-
-                                        @foreach ($regions as $region)
                                             <tr>
                                                 <td>vloyat : </td>
                                                 <td><b>{{ $region->name ?? 'boglanmagan' }}</b></td>
@@ -35,8 +33,6 @@
                                               <td>Mahalla : </td>
                                               <td><b>{{ $region->title ?? 'boglanmagan' }}</b></td>
                                           </tr>
-
-                                        @endforeach
 
                                 </table>
                             </div>

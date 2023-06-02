@@ -10,7 +10,7 @@ use App\Models\Coment;
 use Illuminate\Support\Facades\DB;
 class SiteController extends Controller
 {
-    public function index()
+    public function welcome()
     {
 
         $infos = Info::orderBy('id', 'DESC')->get();
@@ -24,6 +24,9 @@ class SiteController extends Controller
     public function groups()
     {
         $teachers =Teacher::orderBy('id','DESC')->take(4)->get();
+        /* ->where('teachers.id','=', $id)
+        ->where('teachers.level','=', $level ); */
+
 
         return view('pages.groups', compact('teachers'));
     }

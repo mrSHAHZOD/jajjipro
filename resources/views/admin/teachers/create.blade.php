@@ -30,6 +30,19 @@
                         <div class="card-body">
                             <form action="{{ route('admin.teachers.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Daraja</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <select name="level" class="form-control">
+                                       
+                                            <option value="0">rahbar</option>
+                                            <option value="1">rahbar emas</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">IMG</label>
                                     <div class="col-sm-12 col-md-7">

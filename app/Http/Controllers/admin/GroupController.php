@@ -19,6 +19,9 @@ class GroupController extends Controller
 
     public function create()
     {
+        if (Group::count() >=3)
+        return redirect()->route('admin.groups.index')->with('danger','Malumot qoshib bolmaydi');
+
         return view('admin.groups.create');
     }
 
@@ -37,7 +40,7 @@ class GroupController extends Controller
         }
         Group::create($requestData);
 
-        return redirect()->route('admin.groups.index');
+        return redirect()->route('admin.groups.index')->with('success','Malumot qoshildi');
     }
 
 

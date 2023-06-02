@@ -48,9 +48,9 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $street->title}}</td>
-                                                {{-- <td>{{ $street->region->name ?? 'boglanmagan' }}</td> --}}
+                                           {{--      <td>{{ $street->region_id ?? 'boglanmagan' }}</td>
 
-
+ --}}
 
 
 
@@ -79,7 +79,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $streets->links() }}
+                             {{--    {{ $streets->links() }} --}}
                             </div>
                         </div>
                     </div>

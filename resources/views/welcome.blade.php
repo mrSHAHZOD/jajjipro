@@ -6,10 +6,11 @@
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left">
                 <h4 class="text-white mb-4 mt-5 mt-lg-0">Shavkat Mirziyoyev:</h4>
-                <h1 class="display-3 font-weight-bold text-white">"Maktabgacha ta'lim sohasida zamonaviy tizim yaratish muhim vazifamizdir"</h1>
+                <h1 class="display-3 font-weight-bold text-white">"Maktabgacha ta'lim sohasida zamonaviy tizim yaratish muhim
+                    vazifamizdir"</h1>
                 <!-- <p class="text-white mb-4">Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed sit.
-                    Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed ipsum at ipsum nonumy amet. Clita
-                    lorem dolore sed stet et est justo dolore.</p> -->
+                        Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed ipsum at ipsum nonumy amet. Clita
+                        lorem dolore sed stet et est justo dolore.</p> -->
                 <!-- <a href="" class="btn btn-secondary mt-1 py-3 px-5">Ko'proq ma'lumot olish</a> -->
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -24,17 +25,22 @@
     <!-- Facilities Start -->
 
     <!-- About Start -->
-   @include('sections.about')
+    @include('sections.about')
     <!-- About End -->
 
     <!-- Class Start -->
-    <x-group name1="Bizning sinfla"  name2="Farzandlaringiz uchun gruhni tanlang"></x-group>
-
-        @include('sections.groups')
+    <x-group name1="Bizning sinfla" name2="Farzandlaringiz uchun gruhni tanlang"></x-group>
+    <div class="row">
+        @foreach ($teachers as $teacher)
+            @if ($teacher->level == 0)
+                @include('sections.groups')
+            @endif
+        @endforeach
+    </div>
     <!-- Class End -->
 
     <!-- Registration Start -->
-        @include('sections.order')
+    @include('sections.order')
     <!-- Registration End -->
 
     <!-- Team Start -->
@@ -44,13 +50,13 @@
                 <p class="section-title px-5"><span class="px-2">Bizning o'qituvchilarimiz</span></p>
                 <h1 class="mb-4">O'qituvchilarimiz bilan tanishing</h1>
             </div>
-        @include('sections.teacher')
+            @include('sections.teacher')
         </div>
     </div>
     <!-- Team End -->
 
     <!-- Testimonial Start -->
-  @include('sections.coment')
+    @include('sections.coment')
     <!-- Testimonial End -->
 
 
@@ -61,9 +67,8 @@
                 <p class="section-title px-5"><span class="px-2">Bog'cha hayoti</span></p>
                 <h1 class="mb-4">So'nggi maqolalar</h1>
             </div>
-@include('sections.blogs')
+            @include('sections.blogs')
         </div>
     </div>
     <!-- Blog End -->
-
 @endsection

@@ -1,5 +1,3 @@
-<div class="row">
-    @foreach ( $teachers as $teacher )
 
 
     <div class="col-md-6 col-lg-3 text-center team mb-5">
@@ -16,8 +14,8 @@
             </div>
         </div>
         <h4>{{ $teacher->name }}</h4>
-        <i>{{ $teacher->content }}</i>
+        <i>{{ $teacher->content}}</i>
     </div>
-    @endforeach
-</div>
+
+
 

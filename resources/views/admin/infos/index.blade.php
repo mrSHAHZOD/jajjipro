@@ -14,8 +14,19 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+
+
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+
+
+
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header ">
                             <h4>Infos</h4>
                             <a href="{{ route('admin.infos.create') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Create</a>
@@ -50,7 +61,8 @@
                                                 </td>
                                                 <td>{{ $info->title }}</td>
                                                 <td>{{ $info->content }}</td>
-                                                <td><img src="/icons/{{ $info->icon }}" alt="" width="50px"> </td>
+                                                <td><img src="/icons/{{ $info->icon }}" alt="" width="50px">
+                                                </td>
 
                                                 <td>
                                                     <form action="{{ route('admin.infos.destroy', $info->id) }}"
@@ -77,7 +89,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $infos->links() }}
+                                {{--    {{ $infos->links() }} --}}
                             </div>
                         </div>
                     </div>

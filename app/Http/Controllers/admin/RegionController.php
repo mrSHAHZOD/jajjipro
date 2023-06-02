@@ -31,12 +31,13 @@ class RegionController extends Controller
 
     public function show($id)
     {
-        $regions =DB::table('regions')
+        $region =DB::table('regions')
+        ->where('regions.id','=', $id)
         ->join('districts','regions.id','=','districts.region_id')
         ->join('streets','regions.id','=','streets.region_id')
-        ->select('regions.*','districts.*','streets.*')->get();
+        ->select('regions.*','districts.noun','streets.title')->first();
        /*  return $regions; */
-        return view('admin.regions.show', compact('regions'));
+        return view('admin.regions.show', compact('region'));
     }
 
     public function edit($id)

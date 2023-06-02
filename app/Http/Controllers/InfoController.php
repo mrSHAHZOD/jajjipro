@@ -11,7 +11,7 @@ class InfoController extends Controller
 {
     public function index()
     {
-        $infos=Info::orderBy('id','DESC')->paginate(3);
+        $infos=Info::orderBy('id','DESC')->get();
 
         return view('admin.infos.index',compact('infos'));
     }
@@ -19,7 +19,13 @@ class InfoController extends Controller
 
     public function create()
     {
+
+        if (info::count() >= 6 )
+
+        return redirect()->route('admin.infos.index')->with('danger','Malumot qoshib bolmaydi');
+
         return view('admin.infos.create');
+
     }
 
 
@@ -41,14 +47,14 @@ class InfoController extends Controller
 
     public function show(Info $info)
     {
-        $info = Inofo::find($id);
+        $info = Info::find($id);
         return view('admin.infos.show', compact('info'));
     }
 
 
     public function edit(Info $info)
     {
-        $info = Inofo::find($id);
+        $info = Info::find($id);
         return view('admin.infos.edit', compact('info'));
     }
 

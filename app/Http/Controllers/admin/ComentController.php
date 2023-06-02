@@ -27,6 +27,10 @@ class ComentController extends Controller
      */
     public function create()
     {
+        if (Coment::count() >=3 )
+
+        return redirect()->route('admin.coments.index')->with('danger','Malumot  qoshib bolmaydi');
+
         return view('admin.coments.create');
     }
 
@@ -57,7 +61,7 @@ class ComentController extends Controller
         }
         Coment::create($requestData);
 
-        return redirect()->route('admin.coments.index');
+        return redirect()->route('admin.coments.index')->with('success','Malumot muvofaqiyatli qoshildi');
     }
 
     /**

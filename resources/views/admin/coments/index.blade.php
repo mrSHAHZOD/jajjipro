@@ -14,6 +14,13 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="card">
                         <div class="card-header">
                             <h4>Coment</h4>
@@ -51,7 +58,8 @@
                                                 </td>
                                                 <td><img src="/icons/{{ $coment->icon }}" alt=""width="60px"></td>
                                                 <td>{{ $coment->short_content }}</td>
-                                                <td><img src="/images/{{ $coment->img }}" alt=""width="60px"></td>
+                                                <td><img src="/images/{{ $coment->img }}" alt=""width="60px">
+                                                </td>
                                                 <td>{{ $coment->name }}</td>
                                                 <td>{{ $coment->work }}</td>
 

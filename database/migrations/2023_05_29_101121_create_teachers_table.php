@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('instagram');
             $table->text('fbook');
             $table->text('img');
+            $table->integer('level')->nullable();
             $table->timestamps();
         });
     }

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers=Teacher::orderBy('id', 'DESC')->paginate(3);
+        $teachers=Teacher::orderBy('id', 'DESC')->paginate(4);
 
         return view('admin.teachers.index', compact('teachers'));
     }
@@ -18,7 +18,11 @@ class TeacherController extends Controller
 
     public function create()
     {
-        return view('admin.teachers.create');
+        $teachers = DB::table('teachers')->get();
+        if (Teacher::count() >= 4)
+
+        return redirect()->route('admin.teachers.index')->with('danger','Malumot  qoshilmadi');
+        return view('admin.teachers.create',compact('teachers'));
     }
 
 
@@ -37,7 +41,7 @@ class TeacherController extends Controller
         Teacher::create($requestData);
 
 
-      return redirect()->route('admin.teachers.index');
+      return redirect()->route('admin.teachers.index')->with('success','malumot muvofaqiyatli qoshildi');
     }
 
 
@@ -60,7 +64,7 @@ class TeacherController extends Controller
     {
         $teacher->update($request->all());
 
-        return redirect()->route('admin.Teachers.index');
+        return redirect()->route('admin.teachers.index');
     }
 
 
@@ -68,6 +72,6 @@ class TeacherController extends Controller
     {
         $teacher->delete();
 
-        return redirect()->route('admin.Teachers.index');
+        return redirect()->route('admin.teachers.index');
     }
 }

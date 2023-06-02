@@ -7,7 +7,7 @@ use App\Models\Street;
 use App\Models\Region;
 use App\Models\District;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class StreetController extends Controller
 {
     public function index()
@@ -34,9 +34,17 @@ class StreetController extends Controller
 
     public function show($id)
     {
-        $street = Street::find($id);
 
-        return view('admin.streets.show', compact('street'));
+        $streets = DB::table('streets')
+        ->where('streets.id','=',$id)
+        ->join('regions','streets.region_id','=','regions.id')
+        ->join('districts','streets.district_id','=','districts.id')
+
+        ->select('streets.*', 'regions.name', 'districts.noun')->first();
+
+        /* return $streets; */
+
+        return view('admin.streets.show', compact('streets'));
     }
 
     public function edit($id)
