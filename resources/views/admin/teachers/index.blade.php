@@ -16,10 +16,10 @@
                     @endif
 
                     @if ($message = Session::get('danger'))
-                    <div class="alert alert-danger">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
 
 
                     <div class="card">
@@ -61,21 +61,31 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td><img src="/images/{{ $teacher->img }}" alt=""width="100px"></td>
+                                                <td><img src="/images/{{ $teacher->img }}" alt=""width="100px">
+                                                </td>
                                                 <td>{{ $teacher->name }}</td>
                                                 <td>{{ $teacher->content }}</td>
                                                 <td>{{ $teacher->telegram }}</td>
                                                 <td>{{ $teacher->fbook }}</td>
                                                 <td>{{ $teacher->instagram }}</td>
-                                                <td>{{ $teacher->level }}</td>
                                                 <td>
-                                                    <form action="{{ route('admin.teachers.destroy', $teacher->id) }}" method="POST">
+                                                    @if ($teacher->level == 0)
+                                                        Rahbar
+                                                    @else
+                                                        Oqituvchi
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <form action="{{ route('admin.teachers.destroy', $teacher->id) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.teachers.show', $teacher->id) }}" class="btn btn-info">
+                                                        <a href="{{ route('admin.teachers.show', $teacher->id) }}"
+                                                            class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.teachers.edit', $teacher->id) }}" class="btn btn-primary">
+                                                        <a href="{{ route('admin.teachers.edit', $teacher->id) }}"
+                                                            class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
                                                         <button class="btn btn-danger"

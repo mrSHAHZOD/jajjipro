@@ -16,7 +16,7 @@ use App\Http\Controllers\admin\StreetController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ComentController;
 use App\Http\Controllers\admin\GroupController;
-use App\Http\Controllers\admin\TeacherController;
+ use App\Http\Controllers\admin\TeacherController;
 
 
 
@@ -54,7 +54,7 @@ Route::post('/complaints', [ComplaintsController::class, 'complaints'])->name('c
 
 
 /* admin panel start*/
-     Route::prefix('admin/')->name('admin.')->/* middleware('auth')-> */group(function(){
+     Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 
@@ -73,12 +73,13 @@ Route::post('/complaints', [ComplaintsController::class, 'complaints'])->name('c
     Route::resource('/blogs',  BlogController::class);
     Route::resource('/coments',  ComentController::class);
     Route::resource('/groups',  GroupController::class);
-    Route::resource('/teachers', TeacherController::class);
+     Route::resource('/teachers', TeacherController::class);
 
 
 });
 
-/*
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

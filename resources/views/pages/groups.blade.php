@@ -31,7 +31,7 @@
             </div>
 
             <div class="row">
-                @foreach ($teachers as $teacher)
+                @foreach ($teachers1 as $teacher)
                     @if ($teacher->level == 1)
                         @include('sections.teacher')
                     @endif

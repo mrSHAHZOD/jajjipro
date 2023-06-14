@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Info;
-
+use App\Events\AuditEvent;
 use Illuminate\Http\Request;
 use App\Http\Requests\InfoStoreRequest;
 
@@ -20,6 +20,7 @@ class InfoController extends Controller
     public function create()
     {
 
+
         if (info::count() >= 6 )
 
         return redirect()->route('admin.infos.index')->with('danger','Malumot qoshib bolmaydi');
@@ -29,8 +30,12 @@ class InfoController extends Controller
     }
 
 
-    public function store(InfoStoreRequest $request)
+    public function store(InfoStoreRequest $request, Info $info)
     {
+
+        $user = auth()->user()->name;
+        event(new AuditEvent('store', 'infos', $user, $info));
+
 
         $requestData = $request->all();
 
@@ -54,6 +59,8 @@ class InfoController extends Controller
 
     public function edit(Info $info)
     {
+
+
         $info = Info::find($id);
         return view('admin.infos.edit', compact('info'));
     }
@@ -77,14 +84,18 @@ class InfoController extends Controller
         return redirect()->route('admin.infos.index');
     }
 
+
+
     public function destroy(Info $info)
     {
 
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'infos', $user, $info));
+
+
         $this->unlink_file($info);
-
         $info->delete();
-
-        return redirect()->route('admin.infos.index');
+        return redirect()->route('admin.infos.index')->with('danger', 'Deleted');
     }
 
 

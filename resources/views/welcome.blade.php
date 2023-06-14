@@ -31,11 +31,9 @@
     <!-- Class Start -->
     <x-group name1="Bizning sinfla" name2="Farzandlaringiz uchun gruhni tanlang"></x-group>
     <div class="row">
-        @foreach ($teachers as $teacher)
-            @if ($teacher->level == 0)
+
                 @include('sections.groups')
-            @endif
-        @endforeach
+
     </div>
     <!-- Class End -->
 
@@ -50,7 +48,11 @@
                 <p class="section-title px-5"><span class="px-2">Bizning o'qituvchilarimiz</span></p>
                 <h1 class="mb-4">O'qituvchilarimiz bilan tanishing</h1>
             </div>
+            @foreach ($teachers as $teacher)
+            @if ($teacher->level == 0)
             @include('sections.teacher')
+            @endif
+            @endforeach
         </div>
     </div>
     <!-- Team End -->

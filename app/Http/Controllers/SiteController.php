@@ -18,17 +18,20 @@ class SiteController extends Controller
        $blogs =  Blog::orderBy('id','DESC')->get();
        $coments =  Coment::orderBy('id','DESC')->get();
        $teachers =Teacher::orderBy('id','DESC')->take(4)->get();
+
+      
         return view('welcome', compact('infos', 'groups','blogs','coments','teachers'));
     }
 
     public function groups()
     {
-        $teachers =Teacher::orderBy('id','DESC')->take(4)->get();
-        /* ->where('teachers.id','=', $id)
-        ->where('teachers.level','=', $level ); */
+        $teachers =Teacher::orderBy('id','DESC')
+        ->where('level', 1)->take(4)->get();
+        $teachers1 =Teacher::orderBy('id','DESC')
+        ->where('level', 0)->take(8)->get();
+        $coments = Coment::orderBy('id', 'DESC')->get();
 
-
-        return view('pages.groups', compact('teachers'));
+        return view('pages.groups', compact('teachers', 'teachers1','coments'));
     }
     public function gallery()
     {
