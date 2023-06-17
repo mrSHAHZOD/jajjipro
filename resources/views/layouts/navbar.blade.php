@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
     <div class="navbar-nav font-weight-bold mx-auto py-0">
         <a href="/" class="nav-item nav-link active">Bosh sahifa</a>
-        <!-- <a href="about.html" class="nav-item nav-link">About</a> -->
+{{--          <a href="about.html" class="nav-item nav-link">About</a> --}}
         <a href="class" class="nav-item nav-link">Sinflar</a>
         <a href="groups" class="nav-item nav-link">O'qituvchilar</a>
         <a href="achievements" class="nav-item nav-link ">Yutuqlar</a>

@@ -5,6 +5,7 @@ use App\Events\AuditEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\DB;
+
 class AuditEventListener
 {
     /**
@@ -26,10 +27,10 @@ class AuditEventListener
     public function handle(AuditEvent $event)
     {
         DB::table('audits')->insert([
-            'event'=> $event->event,
-            'tablename'=> $event->table,
+            'event' => $event->event,
+            'tablename' => $event->table,
             'username' => $event->user,
-            'data' => $event->data,
-        ])
+            'data'=> $event->data
+        ]);
     }
 }

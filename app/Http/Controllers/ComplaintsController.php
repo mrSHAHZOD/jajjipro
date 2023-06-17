@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ComplaintsController extends Controller
 {
-    public function complaints(Request $request)
+    public function get_complaints(Request $request)
     {
         DB::table('complaints')->insert([
             'name'=>$request->name,

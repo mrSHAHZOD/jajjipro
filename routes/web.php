@@ -34,9 +34,7 @@ use App\Http\Controllers\admin\GroupController;
 |
 */
 
-
-
-
+/*
 Route::get('/', [SiteController::class, 'welcome']);
 Route::get('/groups', [SiteController::class, 'groups']);
 Route::get('/gallery', [SiteController::class, 'gallery']);
@@ -44,9 +42,16 @@ Route::get('/class', [SiteController::class, 'class']);
 Route::get('/blog', [SiteController::class, 'blog']);
 Route::get('/article', [SiteController::class, 'article']);
 Route::get('achievements',  [SiteController::class, 'achievements']);
+ */
 
 
-Route::post('/store', [OrderController::class, 'store'])->name('store');
+ Route::get('/',function(){
+     return redirect('/welcome');
+ });
+ Route::auto(
+     '/', SiteController::class,
+);
+
 Route::post('/complaints', [ComplaintsController::class, 'complaints'])->name('complaints');
 
 
@@ -54,26 +59,26 @@ Route::post('/complaints', [ComplaintsController::class, 'complaints'])->name('c
 
 
 /* admin panel start*/
-     Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function(){
+     Route::prefix('admin/')->name('admin.')->middleware(['auth','admin'])->group(function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 
+    Route::resources([
+     '/infos' => InfoController::class,
+     '/groups' => GroupController::class,
+     '/posts' =>  PostController::class,
+     '/categories'=>  CategoryController::class,
+     '/humans'=> HumanController::class,
+     '/numbers'=>  NumberController::class,
+     '/regions'=>  RegionController::class,
+     '/districts'=>   DistrictController::class,
+     '/streets'=>   StreetController::class,
+     '/blogs' =>  BlogController::class,
+     '/coments'=>   ComentController::class,
+     '/groups'=>  GroupController::class,
+     '/teachers'=>  TeacherController::class,
+]);
 
-
-
-    Route::resource('/infos', InfoController::class);
-    Route::resource('/groups', GroupController::class);
-    Route::resource('/posts', PostController::class);
-    Route::resource('/categories', CategoryController::class);
-    Route::resource('/humans', HumanController::class);
-    Route::resource('/numbers', NumberController::class);
-    Route::resource('/regions', RegionController::class);
-    Route::resource('/districts',  DistrictController::class);
-    Route::resource('/streets',  StreetController::class);
-    Route::resource('/blogs',  BlogController::class);
-    Route::resource('/coments',  ComentController::class);
-    Route::resource('/groups',  GroupController::class);
-     Route::resource('/teachers', TeacherController::class);
 
 
 });

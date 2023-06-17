@@ -10,7 +10,7 @@ use App\Models\Coment;
 use Illuminate\Support\Facades\DB;
 class SiteController extends Controller
 {
-    public function welcome()
+    public function get_welcome()
     {
 
         $infos = Info::orderBy('id', 'DESC')->get();
@@ -19,11 +19,11 @@ class SiteController extends Controller
        $coments =  Coment::orderBy('id','DESC')->get();
        $teachers =Teacher::orderBy('id','DESC')->take(4)->get();
 
-      
+
         return view('welcome', compact('infos', 'groups','blogs','coments','teachers'));
     }
 
-    public function groups()
+    public function get_groups()
     {
         $teachers =Teacher::orderBy('id','DESC')
         ->where('level', 1)->take(4)->get();
@@ -33,27 +33,39 @@ class SiteController extends Controller
 
         return view('pages.groups', compact('teachers', 'teachers1','coments'));
     }
-    public function gallery()
+    public function get_gallery()
     {
         return view('pages.gallery');
     }
-    public function class()
+    public function get_class()
     {
         $groups = Group::orderBy('id', 'DESC')->get();
         return view('pages.class', compact('groups'));
     }
-    public function blog()
+    public function get_blog()
     {
         $blogs =  Blog::orderBy('id','DESC')->get();
         return view('pages.blog' ,compact('blogs'));
     }
-    public function article()
+    public function get_article()
     {
         return view('pages.article');
     }
-    public function achievements()
+    public function get_achievements()
     {
         return view('pages.achievements');
     }
+    
+    public function get_store(Request $request)
+    {
+        DB::table('order')->insert([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        ]);
+
+        return back();
+
+     }
 
 }

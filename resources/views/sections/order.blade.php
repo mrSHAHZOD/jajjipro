@@ -21,7 +21,7 @@
                         <h1 class="text-white m-0">O'rindiqni buyurtma qiling</h1>
                     </div>
                     <div class="card-body rounded-bottom bg-primary p-5">
-                        <form action="{{ route('store') }}" enctype="multipart/form-data" method="POST">
+                        <form action="/store" enctype="multipart/form-data" method="POST">
                             @csrf
                             @method('POST')
                             <div class="form-group">

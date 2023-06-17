@@ -19,17 +19,18 @@ class AuditEvent
      *
      * @return void
      */
-    public $event;
-    public $table;
-    public $user;
-    public $data;
+    public $event ;
+    public $table ;
+    public $user ;
+    public $data ;
     public function __construct($event, $table, $user, $data)
     {
-        $this->events = $event;
+        $this->event = $event;
         $this->table = $table;
         $this->user = $user;
         $this->data = $data;
     }
+
 
     /**
      * Get the channels the event should broadcast on.

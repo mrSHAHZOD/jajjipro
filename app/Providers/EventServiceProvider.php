@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use App\Events\AuditEvent;
+use App\Listeners\AuditEventListener;
 use App\Events\LoginEvent;
 use App\Listeners\LoginEventListener;
 use Illuminate\Auth\Events\Registered;
@@ -21,10 +22,11 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ], */
 
-
-        LoginEvent::class => [
+        LoginEvent::class =>[
             LoginEventListener::class,
-        ],
+        ], 
+
+
         AuditEvent::class => [
             AuditEventListener::class,
         ],
@@ -45,8 +47,9 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return bool
      */
-    public function shouldDiscoverEvents()
+ /*    public function shouldDiscoverEvents()
     {
         return false;
     }
+ */
 }
