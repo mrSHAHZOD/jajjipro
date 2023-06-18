@@ -31,24 +31,76 @@
                             <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title uzb</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                                        @error('title') {{ $message }}  @enderror <br>
+                                        <input type="text" class="form-control" name="title_uz" value="{{ old('title_uz') }}">
+                                        @error('title_uz')
+                                            {{ $message }}
+                                        @enderror <br>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="title_ru"
+                                            value="{{ old('title_ru') }}">
+                                        @error('title_ru')
+                                            {{ $message }}
+                                        @enderror <br>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title Eng</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="title_en"
+                                            value="{{ old('title_en') }}">
+                                        @error('title_en')
+                                            {{ $message }}
+                                        @enderror <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Short
-                                        coment</label>
+                                        coment uzb</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="content" value="{{ old('content') }}">
-                                        @error('content') {{ $message }}  @enderror<br>
+                                        <input type="text" class="form-control" name="content_uz"
+                                            value="{{ old('content_uz') }}">
+                                        @error('content_uz')
+                                            {{ $message }}
+                                        @enderror
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Short
+                                        coment RU</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="content_ru"
+                                            value="{{ old('content_ru') }}">
+                                        @error('content_ru')
+                                            {{ $message }}
+                                        @enderror
+                                        <br>
+                                    </div>
+                                </div>
+                                 <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Short
+                                        coment ENG</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="content_en"
+                                            value="{{ old('content_en') }}">
+                                        @error('content_en')
+                                            {{ $message }}
+                                        @enderror
+                                        <br>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="file" class="form-control" name="icon" value="{{ old('icon') }}">
+                                        <input type="file" class="form-control" name="icon"
+                                            value="{{ old('icon') }}">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

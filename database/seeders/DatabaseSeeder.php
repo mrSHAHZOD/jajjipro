@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-          //  UserSeeder::class,
+           UserSeeder::class,
           // InfoSeeder::class,
         ]);
-
-         \App\Models\User::factory(500000)->create();
+        /* bazaga  n ta malumot kiritish */
+        //  \App\Models\User::factory(500000)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

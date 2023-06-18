@@ -12,23 +12,23 @@
                     </div>
                     <div class="card-footer bg-transparent py-4 px-5">
                         <div class="row border-bottom">
-                            <div class="col-6 py-1 text-right border-right"><strong>Bolalar yoshi</strong></div>
-                            <div class="col-6 py-1">{{ $group->age }}yosh</div>
+                            <div class="col-6 py-1 text-right border-right"><strong>@lang('home.groups_s1')</strong></div>
+                            <div class="col-6 py-1">{{ $group->age }} @lang('home.groups_age')</div>
                         </div>
                         <div class="row border-bottom">
-                            <div class="col-6 py-1 text-right border-right"><strong>Jami o'rindiqlar</strong></div>
-                            <div class="col-6 py-1">{{ $group->seat }} o'rindiq</div>
+                            <div class="col-6 py-1 text-right border-right"><strong>@lang('home.groups_s2')</strong></div>
+                            <div class="col-6 py-1">{{ $group->seat }} @lang('home.groups_seat')</div>
                         </div>
                         <div class="row border-bottom">
-                            <div class="col-6 py-1 text-right border-right"><strong>Dars vaqti</strong></div>
+                            <div class="col-6 py-1 text-right border-right"><strong>@lang('home.groups_time')</strong></div>
                             <div class="col-6 py-1">08:00 - {{ $group->class_time }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-6 py-1 text-right border-right"><strong>Oylik to'lov</strong></div>
-                            <div class="col-6 py-1">{{ $group->payment }} / Oy</div>
+                            <div class="col-6 py-1 text-right border-right"><strong>@lang('home.groups_payment')</strong></div>
+                            <div class="col-6 py-1">{{ $group->payment }} / @lang('home.groups_data')</div>
                         </div>
                     </div>
-                    <a href="tel:+998996111300" class="btn btn-primary px-4 mx-auto mb-4">Hoziroq qo'shil</a>
+                    <a href="tel:+998996111300" class="btn btn-primary px-4 mx-auto mb-4">@lang('home.groups_add')</a>
                 </div>
             </div>
 

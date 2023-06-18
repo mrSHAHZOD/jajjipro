@@ -15,7 +15,7 @@
                    <small class="mr-3"><i class="fa fa-eye text-primary"></i> 15</small>
                 </div>
                 <p>{{ $blog->short_content }}</p>
-              <a href="" class="btn btn-primary px-4 mx-auto my-2">Batafsil</a>
+              <a href="" class="btn btn-primary px-4 mx-auto my-2">@lang('home.blogs_batafsil')</a>
             </div>
         </div>
     </div>

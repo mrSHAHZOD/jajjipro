@@ -46,11 +46,16 @@ Route::get('achievements',  [SiteController::class, 'achievements']);
 
 
  Route::get('/',function(){
-     return redirect('/welcome');
- });
- Route::auto(
-     '/', SiteController::class,
-);
+    return redirect('/welcome');
+});
+
+Route::get('/lang/{lang}', function($lang){
+    session((['lang' => $lang]));
+
+    return back();
+});
+
+ Route::auto('/', SiteController::class,);
 
 Route::post('/complaints', [ComplaintsController::class, 'complaints'])->name('complaints');
 

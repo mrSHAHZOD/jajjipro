@@ -5,9 +5,8 @@
     <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left">
-                <h4 class="text-white mb-4 mt-5 mt-lg-0">Shavkat Mirziyoyev:</h4>
-                <h1 class="display-3 font-weight-bold text-white">"Maktabgacha ta'lim sohasida zamonaviy tizim yaratish muhim
-                    vazifamizdir"</h1>
+                <h4 class="text-white mb-4 mt-5 mt-lg-0">@lang('home.president')</h4>
+                <h1 class="display-3 font-weight-bold text-white">@lang('home.h_title')</h1>
                 <!-- <p class="text-white mb-4">Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed sit.
                         Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed ipsum at ipsum nonumy amet. Clita
                         lorem dolore sed stet et est justo dolore.</p> -->
@@ -29,7 +28,7 @@
     <!-- About End -->
 
     <!-- Class Start -->
-    <x-group name1="Bizning sinfla" name2="Farzandlaringiz uchun gruhni tanlang"></x-group>
+    <x-group name1=" {{  __('home.groups_t') }} " name2="{{ __('home.groups_sh') }}"></x-group>
     <div class="row">
 
                 @include('sections.groups')
@@ -45,8 +44,8 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Bizning o'qituvchilarimiz</span></p>
-                <h1 class="mb-4">O'qituvchilarimiz bilan tanishing</h1>
+                <p class="section-title px-5"><span class="px-2">@lang('home.teacher_t')</span></p>
+                <h1 class="mb-4">@lang('home.teacher_sh')</h1>
             </div>
             @foreach ($teachers as $teacher)
             @if ($teacher->level == 0)
@@ -66,8 +65,8 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Bog'cha hayoti</span></p>
-                <h1 class="mb-4">So'nggi maqolalar</h1>
+                <p class="section-title px-5"><span class="px-2">@lang('home.blogs_t')</span></p>
+                <h1 class="mb-4">@lang('home.blogs_sh')</h1>
             </div>
             @include('sections.blogs')
         </div>

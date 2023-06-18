@@ -30,7 +30,7 @@ class InfoController extends Controller
     }
 
 
-    public function store(InfoStoreRequest $request, Info $info)
+    public function store(Request $request, Info $info)
     {
 
         $user = auth()->user()->name;
@@ -52,7 +52,6 @@ class InfoController extends Controller
 
     public function show(Info $info)
     {
-        $info = Info::find($id);
         return view('admin.infos.show', compact('info'));
     }
 
@@ -61,7 +60,7 @@ class InfoController extends Controller
     {
 
 
-        $info = Info::find($id);
+
         return view('admin.infos.edit', compact('info'));
     }
 

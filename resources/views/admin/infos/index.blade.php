@@ -40,8 +40,8 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Title</th>
-                                            <th>Content</th>
+                                            <th>Title uz</th>
+                                            <th>Content uz</th>
                                             <th>Icon</th>
                                             <th>Action</th>
                                         </tr>
@@ -59,8 +59,8 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $info->title }}</td>
-                                                <td>{{ $info->content }}</td>
+                                                <td>{{ $info->title_uz }}</td>
+                                                <td>{{ $info->content_uz }}</td>
                                                 <td><img src="/icons/{{ $info->icon }}" alt="" width="50px">
                                                 </td>
 

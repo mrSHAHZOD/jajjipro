@@ -121,13 +121,11 @@
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
                                 </svg> Lock Account
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout">
-                                    </use>
-                                </svg> Logout
-                            </a>
-                            
+                            <form action="{{ route('logout') }}" class="logout" method="POST">
+                                @csrf
+                                <button class="dropdown-item has-icon text-danger"> <i
+                                        class="fas fa-sign-out-alt"></i> Log out</button>
+                            </form>
                         </div>
 
                     </li>
@@ -144,6 +142,7 @@
                         </li>
                         <li class="breadcrumb-item active"><span>Dashboard</span></li>
                     </ol>
+                    <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
                 </nav>
             </div>
         </header>
