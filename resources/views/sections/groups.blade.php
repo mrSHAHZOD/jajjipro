@@ -25,7 +25,7 @@
                         </div>
                         <div class="row">
                             <div class="col-6 py-1 text-right border-right"><strong>@lang('home.groups_payment')</strong></div>
-                            <div class="col-6 py-1">{{ $group->payment }} / @lang('home.groups_data')</div>
+                            <div class="col-6 py-1">{{ $group->payment }} $/ @lang('home.groups_data')</div>
                         </div>
                     </div>
                     <a href="tel:+998996111300" class="btn btn-primary px-4 mx-auto mb-4">@lang('home.groups_add')</a>

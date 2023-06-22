@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Header Start -->
-    <x-header name1="Sinflar" name2="Sinf"></x-header>
+    <x-header name1="{{ __('navbar.groups') }}" name2="{{ __('navbar.groups') }}"></x-header>
 
     <!-- Header End -->
 

@@ -47,11 +47,13 @@
                 <p class="section-title px-5"><span class="px-2">@lang('home.teacher_t')</span></p>
                 <h1 class="mb-4">@lang('home.teacher_sh')</h1>
             </div>
+
             @foreach ($teachers as $teacher)
             @if ($teacher->level == 0)
-            @include('sections.teacher')
+             @include('sections.teacher')
             @endif
             @endforeach
+
         </div>
     </div>
     <!-- Team End -->

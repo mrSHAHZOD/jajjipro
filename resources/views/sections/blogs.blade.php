@@ -2,9 +2,7 @@
 
 @foreach($blogs as $blog )
 
-
-
-    <div class="col-lg-4 mb-4">
+  <div class="col-lg-4 mb-4">
         <div class="card border-0 shadow-sm mb-2">
             <img class="card-img-top mb-2" src="images/{{ $blog->img }}" alt="">
             <div class="card-body bg-light text-center p-4">

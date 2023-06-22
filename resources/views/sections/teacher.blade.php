@@ -1,5 +1,3 @@
-
-
     <div class="col-md-6 col-lg-3 text-center team mb-5">
         <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
             <img class="img-fluid w-100 h-100" src="/images/{{ $teacher->img }}" alt=""  >

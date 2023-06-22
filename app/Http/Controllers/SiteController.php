@@ -25,10 +25,8 @@ class SiteController extends Controller
 
     public function get_groups()
     {
-        $teachers =Teacher::orderBy('id','DESC')
-        ->where('level', 1)->take(4)->get();
-        $teachers1 =Teacher::orderBy('id','DESC')
-        ->where('level', 0)->take(8)->get();
+        $teachers =Teacher::orderBy('id','DESC')->where('level', 1)->take(4)->get();
+        $teachers1 =Teacher::orderBy('id','DESC')->where('level', 0)->take(8)->get();
         $coments = Coment::orderBy('id', 'DESC')->get();
 
         return view('pages.groups', compact('teachers', 'teachers1','coments'));
@@ -55,7 +53,7 @@ class SiteController extends Controller
     {
         return view('pages.achievements');
     }
-    
+
     public function get_store(Request $request)
     {
         DB::table('order')->insert([

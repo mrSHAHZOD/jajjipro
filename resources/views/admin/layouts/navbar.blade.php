@@ -5,6 +5,41 @@
             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
         </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
 </li>
+
+<li class="nav-title">Theme</li>
+
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.infos.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Infos</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.blogs.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> Blogs</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.coments.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> Coments</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.groups.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg> groups</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.teachers.index') }}">
+    <svg class="nav-icon">
+       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
+    </svg>Teacher</a>
+</li>
+
+
 <li class="nav-title">malumotlar</li>
 
 <li class="nav-item"><a class="nav-link" href="{{ route('admin.categories.index') }}">
@@ -56,36 +91,4 @@
     </svg>mahalla</a>
 </li>
 
-<li class="nav-title">Theme</li>
-
-
-<li class="nav-item"><a class="nav-link" href="{{ route('admin.infos.index') }}">
-    <svg class="nav-icon">
-        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-    </svg> Infos</a>
-</li>
-
-<li class="nav-item"><a class="nav-link" href="{{ route('admin.blogs.index') }}">
-    <svg class="nav-icon">
-       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
-    </svg> Blogs</a>
-</li>
-
-<li class="nav-item"><a class="nav-link" href="{{ route('admin.coments.index') }}">
-    <svg class="nav-icon">
-       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
-    </svg> Coments</a>
-</li>
-
-<li class="nav-item"><a class="nav-link" href="{{ route('admin.groups.index') }}">
-    <svg class="nav-icon">
-       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
-    </svg> groups</a>
-</li>
-
-<li class="nav-item"><a class="nav-link" href="{{ route('admin.teachers.index') }}">
-    <svg class="nav-icon">
-       {{--  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use> --}}
-    </svg>Teacher</a>
-</li>
 

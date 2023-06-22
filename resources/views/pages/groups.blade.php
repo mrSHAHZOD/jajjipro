@@ -25,9 +25,9 @@
 
 
 
-            <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Bizning o'qituvchilarimiz</span></p>
-                <h1 class="mb-4">O'qituvchilarimiz bilan tanishing</h1>
+            <div class="text-center mb-2">
+                <p class="section-title px-5"><span class="px-5">Bizning o'qituvchilarimiz</span></p>
+                <h1 class="mb-5">O'qituvchilarimiz bilan tanishing</h1>
             </div>
 
             <div class="row">
@@ -43,8 +43,8 @@
     </div>
     <!-- Team End -->
 
-
-    {{--   <!-- Testimonial Start -->
-    @include('sections.coment') --}}
-    <!-- Testimonial End -->
+{{--
+      <!-- Testimonial Start -->
+    @include('sections.coment')
+    <!-- Testimonial End --> --}}
 @endsection
