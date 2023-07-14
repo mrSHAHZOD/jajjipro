@@ -30,7 +30,7 @@ class AuditEventListener
             'event' => $event->event,
             'tablename' => $event->table,
             'username' => $event->user,
-            'data'=> $event->data
+            'data'=> $event->data,
         ]);
     }
 }
