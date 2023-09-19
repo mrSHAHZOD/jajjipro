@@ -59,8 +59,6 @@ class InfoController extends Controller
     public function edit(Info $info)
     {
 
-
-
         return view('admin.infos.edit', compact('info'));
     }
 
